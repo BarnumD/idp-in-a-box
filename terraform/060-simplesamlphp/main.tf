@@ -58,6 +58,8 @@ data "template_file" "task_def" {
   vars {
     memory                       = "${var.memory}"
     cpu                          = "${var.cpu}"
+    admin_email                  = "${var.admin_email}"
+    admin_name                   = "${var.admin_name}"
     admin_pass                   = "${random_id.admin_pass.hex}"
     base_url                     = "https://${var.subdomain}.${var.cloudflare_domain}/"
     docker_image                 = "${var.docker_image}"

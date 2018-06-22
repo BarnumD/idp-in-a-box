@@ -10,6 +10,14 @@ variable "logentries_set_id" {
   type = "string"
 }
 
+variable "admin_email" {
+  type    = "string"
+}
+
+variable "admin_name" {
+  type    = "string"
+}
+
 variable "app_name" {
   type    = "string"
   default = "simplesamlphp"
