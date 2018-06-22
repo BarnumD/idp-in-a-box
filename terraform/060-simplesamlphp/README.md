@@ -9,6 +9,8 @@ This module is used to create an ECS service running simpleSAMLphp.
 
 ## Required Inputs
 
+ - `admin_email` - Technical contact's email
+ - `admin_name` - Technical contact's name
  - `app_name` - Application name
  - `app_env` - Application environment
  - `logentries_set_id` - Logentries logset ID for creating new log in
@@ -63,6 +65,8 @@ module "ssp" {
   memory                       = "${var.memory}"
   cpu                          = "${var.cpu}"
   desired_count                = "${var.desired_count}"
+  admin_email                  = "${var.admin_email}"
+  admin_name                   = "${var.admin_name}"
   app_name                     = "${var.app_name}"
   app_env                      = "${var.app_env}"
   logentries_set_id            = "${data.terraform_remote_state.cluster.logentries_set_id}"
