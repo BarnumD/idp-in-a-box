@@ -1,4 +1,24 @@
-#!/bin/sh
+#!/bin/bash
+
+set -ex
+
+if [ ! -f broker/local.env ]; then
+  cp broker/local.env.dist broker/local.env
+fi
+
+if [ ! -f email/local.env ]; then
+  cp email/local.env.dist email/local.env
+fi
+
+if [ ! -f pw-api/local.env ]; then
+  cp pw-api/local.env.dist pw-api/local.env
+fi
+
+if [ ! -f sync/local.env ]; then
+  cp sync/local.env.dist sync/local.env
+fi
+
 docker-compose up -d
 docker-compose exec broker whenavail db-broker 3306 100 ./yii migrate --interactive=0
 docker-compose exec email whenavail db-email 3306 100 ./yii migrate --interactive=0
+
